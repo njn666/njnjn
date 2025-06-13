@@ -8,7 +8,7 @@ namespace SteamManager.Resources {
         private static ResourceManager resourceMan;
         private static CultureInfo resourceCulture;
 
-        internal static ResourceManager ResourceManager {
+        public static ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     var temp = new ResourceManager("SteamManager.Resources.Strings", typeof(Strings).GetTypeInfo().Assembly);
@@ -18,36 +18,36 @@ namespace SteamManager.Resources {
             }
         }
 
-        internal static CultureInfo Culture {
+        public static CultureInfo Culture {
             get { return resourceCulture; }
             set { resourceCulture = value; }
         }
 
-        internal static string Welcome {
+        public static string Welcome {
             get { return ResourceManager.GetString("Welcome", resourceCulture); }
         }
 
-        internal static string Launch {
+        public static string Launch {
             get { return ResourceManager.GetString("Launch", resourceCulture); }
         }
 
-        internal static string Trade {
+        public static string Trade {
             get { return ResourceManager.GetString("Trade", resourceCulture); }
         }
 
-        internal static string Refresh {
+        public static string Refresh {
             get { return ResourceManager.GetString("Refresh", resourceCulture); }
         }
 
-        internal static string Drops {
+        public static string Drops {
             get { return ResourceManager.GetString("Drops", resourceCulture); }
         }
 
-        internal static string Username {
+        public static string Username {
             get { return ResourceManager.GetString("Username", resourceCulture); }
         }
 
-        internal static string Language {
+        public static string Language {
             get { return ResourceManager.GetString("Language", resourceCulture); }
         }
     }
