@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="Welcome" xml:space="preserve">
+    <value>Добро пожаловать в Steam Manager</value>
+  </data>
+  <data name="Launch" xml:space="preserve">
+    <value>Запустить</value>
+  </data>
+  <data name="Trade" xml:space="preserve">
+    <value>Отправить трейд</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Обновить XP</value>
+  </data>
+  <data name="Drops" xml:space="preserve">
+    <value>Дропы</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Аккаунт</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык:</value>
+  </data>
+</root>
