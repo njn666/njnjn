@@ -31,7 +31,8 @@ On first run you can load accounts from an optional `accounts.json` file with th
 ```
 
 Set the environment variable `STEAM_MANAGER_LANG` to `ru` for Russian UI.
-You can also add new accounts directly within the application using the fields
-below the account table. Enter the username, password, Steam ID and API key then
-press **Add Account**. Use the **Launch** and **Trade** buttons to start CS2 or
-send items for the selected account.
+You can also add new accounts directly within the application using the inputs
+below the account table. Each field is labeled so you know where to enter the
+username, password, Steam ID and API key. After filling them in, press
+**Add Account**. Use the **Launch** and **Trade** buttons to start CS2 or send
+items for the selected account.
