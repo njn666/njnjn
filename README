@@ -9,7 +9,7 @@ window lists all accounts with their XP and recent drops in a dark theme.
 ## Building
 1. Install the .NET 8 SDK with Windows desktop support. On Linux you can use the [dotnet-install script](https://learn.microsoft.com/dotnet/core/tools/dotnet-install-script).
 2. Run `dotnet restore` and then
-   `dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true`.
+  `dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true`.
    This creates a stand‑alone executable that does not require .NET to be installed.
 3. Launch `publish/SteamManager.exe` from `SteamManager/bin/Release/net8.0-windows/win-x64`.
    During development you can run `dotnet run --project SteamManager/SteamManager.csproj` to start the UI immediately.
@@ -36,3 +36,6 @@ below the account table. Each field is labeled so you know where to enter the
 username, password, Steam ID and API key. After filling them in, press
 **Add Account**. Use the **Launch** and **Trade** buttons to start CS2 or send
 items for the selected account.
+
+If Steam is installed in a non-standard location, set the `STEAM_EXE`
+environment variable to the full path of `steam.exe` so the launcher can find it.
