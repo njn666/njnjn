@@ -4,37 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Steam Manager" Height="500" Width="900">
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,5">
-            <TextBlock Text="{Binding Loc.Welcome}" FontWeight="Bold" Margin="0,0,10,0"/>
-            <TextBlock Text="{Binding Loc.Language}" Margin="0,0,5,0"/>
+        Title="Steam Manager" Height="500" Width="900"
+        Background="#1e1e1e" Foreground="White">
+    <DockPanel Margin="10">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,0,0,10">
+            <TextBlock Text="{Binding Loc.Welcome}" FontWeight="Bold" FontSize="16" Margin="0,0,10,0"/>
+            <TextBlock Text="{Binding Loc.Language}" VerticalAlignment="Center" Margin="0,0,5,0"/>
             <ComboBox Width="120" SelectedItem="{Binding SelectedLanguage}" ItemsSource="{Binding Languages}"/>
             <Button Content="{Binding Loc.Refresh}" Margin="10,0" Command="{Binding RefreshCommand}"/>
         </StackPanel>
-        <DataGrid ItemsSource="{Binding Accounts}" AutoGenerateColumns="False" Grid.Row="1" SelectedItem="{Binding SelectedAccount}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="{Binding Loc.Username}" Binding="{Binding Username}"/>
-                <DataGridTextColumn Header="XP" Binding="{Binding Xp}"/>
-                <DataGridTextColumn Header="{Binding Loc.Drops}" Binding="{Binding Drops}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,5">
-            <TextBox Width="100" Margin="0,0,5,0" Text="{Binding NewUsername, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Width="100" Margin="0,0,5,0" Text="{Binding NewPassword, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Width="130" Margin="0,0,5,0" Text="{Binding NewSteamId, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Width="130" Margin="0,0,5,0" Text="{Binding NewApiKey, UpdateSourceTrigger=PropertyChanged}" />
-            <Button Content="Add" Width="80" Command="{Binding AddAccountCommand}"/>
+
+        <Border Background="#2b2b2b" CornerRadius="4" Padding="5" DockPanel.Dock="Top">
+            <DataGrid ItemsSource="{Binding Accounts}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAccount}"
+                      HeadersVisibility="Column" RowBackground="#333" AlternatingRowBackground="#383838" BorderThickness="0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Username}"
+                                        Header="{Binding DataContext.Loc.Username, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                    <DataGridTextColumn Binding="{Binding Xp}"
+                                        Header="XP"/>
+                    <DataGridTextColumn Binding="{Binding Drops}"
+                                        Header="{Binding DataContext.Loc.Drops, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0,10,0,0">
+            <TextBox Width="100" Margin="0,0,5,0" ToolTip="{Binding Loc.Username}" Text="{Binding NewUsername, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Width="100" Margin="0,0,5,0" ToolTip="{Binding Loc.Password}" Text="{Binding NewPassword, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Width="130" Margin="0,0,5,0" ToolTip="{Binding Loc.SteamId}" Text="{Binding NewSteamId, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Width="130" Margin="0,0,5,0" ToolTip="{Binding Loc.ApiKey}" Text="{Binding NewApiKey, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Content="{Binding Loc.AddAccount}" Width="100" Command="{Binding AddAccountCommand}"/>
+            <Button Content="{Binding Loc.Launch}" Width="100" Command="{Binding LaunchCommand}" Margin="10,0,0,0"/>
+            <Button Content="{Binding Loc.Trade}" Width="100" Command="{Binding TradeCommand}" Margin="5,0,0,0"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="0,10,0,0" HorizontalAlignment="Left">
-            <Button Content="{Binding Loc.Launch}" Width="100" Command="{Binding LaunchCommand}" Margin="0,0,5,0"/>
-            <Button Content="{Binding Loc.Trade}" Width="100" Command="{Binding TradeCommand}"/>
-        </StackPanel>
-    </Grid>
+    </DockPanel>
 </Window>

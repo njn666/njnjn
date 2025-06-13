@@ -12,6 +12,10 @@ namespace SteamManager.Resources
         public string Drops => Strings.Drops;
         public string Username => Strings.Username;
         public string Language => Strings.Language;
+        public string Password => Strings.Password;
+        public string SteamId => Strings.SteamId;
+        public string ApiKey => Strings.ApiKey;
+        public string AddAccount => Strings.AddAccount;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -25,6 +29,10 @@ namespace SteamManager.Resources
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Drops)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Username)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Language)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Password)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SteamId)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ApiKey)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AddAccount)));
         }
     }
 }

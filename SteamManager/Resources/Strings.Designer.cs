@@ -50,5 +50,21 @@ namespace SteamManager.Resources {
         public static string Language {
             get { return ResourceManager.GetString("Language", resourceCulture); }
         }
+
+        public static string Password {
+            get { return ResourceManager.GetString("Password", resourceCulture); }
+        }
+
+        public static string SteamId {
+            get { return ResourceManager.GetString("SteamId", resourceCulture); }
+        }
+
+        public static string ApiKey {
+            get { return ResourceManager.GetString("ApiKey", resourceCulture); }
+        }
+
+        public static string AddAccount {
+            get { return ResourceManager.GetString("AddAccount", resourceCulture); }
+        }
     }
 }

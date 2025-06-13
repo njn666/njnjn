@@ -21,4 +21,16 @@
   <data name="Language" xml:space="preserve">
     <value>Language:</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SteamId" xml:space="preserve">
+    <value>Steam ID</value>
+  </data>
+  <data name="ApiKey" xml:space="preserve">
+    <value>API Key</value>
+  </data>
+  <data name="AddAccount" xml:space="preserve">
+    <value>Add Account</value>
+  </data>
 </root>

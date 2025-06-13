@@ -21,4 +21,16 @@
   <data name="Language" xml:space="preserve">
     <value>Язык:</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="SteamId" xml:space="preserve">
+    <value>Steam ID</value>
+  </data>
+  <data name="ApiKey" xml:space="preserve">
+    <value>API ключ</value>
+  </data>
+  <data name="AddAccount" xml:space="preserve">
+    <value>Добавить аккаунт</value>
+  </data>
 </root>
