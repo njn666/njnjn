@@ -5,6 +5,7 @@
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <UseWPF>true</UseWPF>
     <RootNamespace>SteamManager</RootNamespace>
+    <StartupObject>SteamManager.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SteamKit2" Version="2.4.0" />

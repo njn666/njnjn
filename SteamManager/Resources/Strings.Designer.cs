@@ -4,7 +4,7 @@ namespace SteamManager.Resources {
     using System.Resources;
     using System.Globalization;
 
-    internal static class Strings {
+    public static class Strings {
         private static ResourceManager resourceMan;
         private static CultureInfo resourceCulture;
 
