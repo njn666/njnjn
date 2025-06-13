@@ -8,20 +8,22 @@ namespace SteamManager
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            LoadCulture();
+            var lang = LoadCulture();
             var vm = new ViewModels.MainViewModel();
+            vm.SelectedLanguage = lang;
             vm.LoadAccounts("accounts.json");
             var window = new Views.MainWindow { DataContext = vm };
             MainWindow = window;
             window.Show();
         }
 
-        private static void LoadCulture()
+        private static string LoadCulture()
         {
             var lang = Environment.GetEnvironmentVariable("STEAM_MANAGER_LANG");
             SteamManager.Resources.Strings.Culture = lang == "ru" ?
                 new System.Globalization.CultureInfo("ru-RU") :
                 new System.Globalization.CultureInfo("en-US");
+            return lang == "ru" ? "ru" : "en";
         }
     }
 }

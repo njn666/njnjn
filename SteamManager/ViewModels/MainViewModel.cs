@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.ComponentModel;
@@ -25,6 +26,8 @@ namespace SteamManager.ViewModels
         public ObservableCollection<AccountViewModel> Accounts { get; } = new();
         public ObservableCollection<string> Languages { get; } = new() { "en", "ru" };
 
+        public Resources.LocalizedStrings Loc { get; } = new Resources.LocalizedStrings();
+
         private string _selectedLanguage = "en";
         public string SelectedLanguage
         {
@@ -34,7 +37,7 @@ namespace SteamManager.ViewModels
                 if (_selectedLanguage != value)
                 {
                     _selectedLanguage = value;
-                    Resources.Strings.Culture = new CultureInfo(value == "ru" ? "ru-RU" : "en-US");
+                    Loc.UpdateCulture(value);
                     OnPropertyChanged(nameof(SelectedLanguage));
                 }
             }
@@ -45,12 +48,19 @@ namespace SteamManager.ViewModels
         public ICommand RefreshCommand { get; }
         public ICommand LaunchCommand { get; }
         public ICommand TradeCommand { get; }
+        public ICommand AddAccountCommand { get; }
+
+        public string NewUsername { get; set; } = string.Empty;
+        public string NewPassword { get; set; } = string.Empty;
+        public string NewSteamId { get; set; } = string.Empty;
+        public string NewApiKey { get; set; } = string.Empty;
 
         public MainViewModel()
         {
             RefreshCommand = new RelayCommand(_ => Refresh());
             LaunchCommand = new RelayCommand(_ => Launch());
             TradeCommand = new RelayCommand(_ => Trade());
+            AddAccountCommand = new RelayCommand(_ => AddAccount());
         }
 
         public void LoadAccounts(string file)
@@ -99,6 +109,37 @@ namespace SteamManager.ViewModels
                 var trade = new TradeManager(a);
                 trade.LoginAndSendOffer();
             }
+        }
+
+        private void AddAccount()
+        {
+            var vm = new AccountViewModel
+            {
+                Username = NewUsername,
+                Password = NewPassword,
+                SteamId = NewSteamId,
+                ApiKey = NewApiKey
+            };
+            Accounts.Add(vm);
+
+            var list = new List<Account>();
+            foreach (var a in Accounts)
+            {
+                list.Add(new Account
+                {
+                    Username = a.Username,
+                    Password = a.Password,
+                    SteamId = a.SteamId,
+                    ApiKey = a.ApiKey
+                });
+            }
+            AccountConfig.Save("accounts.json", list);
+
+            NewUsername = NewPassword = NewSteamId = NewApiKey = string.Empty;
+            OnPropertyChanged(nameof(NewUsername));
+            OnPropertyChanged(nameof(NewPassword));
+            OnPropertyChanged(nameof(NewSteamId));
+            OnPropertyChanged(nameof(NewApiKey));
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

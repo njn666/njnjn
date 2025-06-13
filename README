@@ -1,9 +1,9 @@
 # SteamTrush
 
 SteamTrush is a Windows desktop tool for managing multiple Steam accounts.
-It provides a graphical interface built with WPF that lets you view account XP,
-launch Counter-Strike 2 from any account and send trade offers. The interface
-can be switched between English and Russian.
+It provides a modern WPF interface where you can view XP, launch Counter‑Strike 2
+and send trade offers. Accounts can be added directly inside the application and
+the language can be switched between English and Russian on the fly.
 
 ## Building
 1. Install the .NET 8 SDK with Windows desktop support. On Linux you can use the [dotnet-install script](https://learn.microsoft.com/dotnet/core/tools/dotnet-install-script).
@@ -16,7 +16,7 @@ can be switched between English and Russian.
 Continuous builds run on GitHub Actions using the included workflow in `.github/workflows/dotnet.yml`.
 
 ## Configuration
-Create an `accounts.json` file with the following structure:
+On first run you can load accounts from an optional `accounts.json` file with the following structure:
 
 ```json
 [
@@ -30,3 +30,5 @@ Create an `accounts.json` file with the following structure:
 ```
 
 Set the environment variable `STEAM_MANAGER_LANG` to `ru` for Russian UI.
+You can also add new accounts directly within the application using the fields
+below the account table.

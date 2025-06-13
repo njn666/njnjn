@@ -20,5 +20,14 @@ namespace SteamManager
             var json = File.ReadAllText(file);
             return JsonSerializer.Deserialize<List<Account>>(json) ?? new List<Account>();
         }
+
+        public static void Save(string file, IEnumerable<Account> accounts)
+        {
+            var json = JsonSerializer.Serialize(accounts, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+            File.WriteAllText(file, json);
+        }
     }
 }
