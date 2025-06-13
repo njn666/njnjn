@@ -12,6 +12,7 @@ namespace SteamManager
             var vm = new ViewModels.MainViewModel();
             vm.LoadAccounts("accounts.json");
             var window = new Views.MainWindow { DataContext = vm };
+            MainWindow = window;
             window.Show();
         }
 

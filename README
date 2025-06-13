@@ -7,8 +7,10 @@ can be switched between English and Russian.
 
 ## Building
 1. Install the .NET 8 SDK with Windows desktop support. On Linux you can use the [dotnet-install script](https://learn.microsoft.com/dotnet/core/tools/dotnet-install-script).
-2. Run `dotnet restore` and then `dotnet publish -c Release -r win-x64 --self-contained`.
-3. Launch the generated `SteamManager.exe` from `SteamManager/bin/Release/net8.0-windows/win-x64/publish`.
+2. Run `dotnet restore` and then
+   `dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true`.
+   This produces a stand‑alone executable that does not require .NET to be installed.
+3. Launch `publish/SteamManager.exe` from `SteamManager/bin/Release/net8.0-windows/win-x64`.
 
 Continuous builds run on GitHub Actions using the included workflow in `.github/workflows/dotnet.yml`.
 
