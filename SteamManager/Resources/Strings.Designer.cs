@@ -66,5 +66,13 @@ namespace SteamManager.Resources {
         public static string AddAccount {
             get { return ResourceManager.GetString("AddAccount", resourceCulture); }
         }
+
+        public static string SteamPath {
+            get { return ResourceManager.GetString("SteamPath", resourceCulture); }
+        }
+
+        public static string Browse {
+            get { return ResourceManager.GetString("Browse", resourceCulture); }
+        }
     }
 }

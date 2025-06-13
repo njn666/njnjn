@@ -33,4 +33,10 @@
   <data name="AddAccount" xml:space="preserve">
     <value>Добавить аккаунт</value>
   </data>
+  <data name="SteamPath" xml:space="preserve">
+    <value>Путь к Steam</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Обзор...</value>
+  </data>
 </root>

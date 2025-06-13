@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.ComponentModel;
 using System.Globalization;
+using Microsoft.Win32;
 
 namespace SteamManager.ViewModels
 {
@@ -49,6 +50,14 @@ namespace SteamManager.ViewModels
         public ICommand LaunchCommand { get; }
         public ICommand TradeCommand { get; }
         public ICommand AddAccountCommand { get; }
+        public ICommand BrowseSteamCommand { get; }
+
+        private string _steamExePath = string.Empty;
+        public string SteamExePath
+        {
+            get => _steamExePath;
+            set { _steamExePath = value; OnPropertyChanged(nameof(SteamExePath)); }
+        }
 
         public string NewUsername { get; set; } = string.Empty;
         public string NewPassword { get; set; } = string.Empty;
@@ -61,6 +70,8 @@ namespace SteamManager.ViewModels
             LaunchCommand = new RelayCommand(_ => Launch());
             TradeCommand = new RelayCommand(_ => Trade());
             AddAccountCommand = new RelayCommand(_ => AddAccount());
+            BrowseSteamCommand = new RelayCommand(_ => BrowseSteam());
+            SteamExePath = GameLauncher.DetectSteamPath();
         }
 
         public void LoadAccounts(string file)
@@ -97,7 +108,7 @@ namespace SteamManager.ViewModels
             if (SelectedAccount != null)
             {
                 var a = new Account { Username = SelectedAccount.Username, Password = SelectedAccount.Password };
-                GameLauncher.LaunchCS2(a);
+                GameLauncher.LaunchCS2(a, SteamExePath);
             }
         }
 
@@ -140,6 +151,20 @@ namespace SteamManager.ViewModels
             OnPropertyChanged(nameof(NewPassword));
             OnPropertyChanged(nameof(NewSteamId));
             OnPropertyChanged(nameof(NewApiKey));
+        }
+
+        private void BrowseSteam()
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "Steam (steam.exe)|steam.exe|Executable (*.exe)|*.exe",
+                FileName = "steam.exe"
+            };
+            if (dialog.ShowDialog() == true)
+            {
+                SteamExePath = dialog.FileName;
+                Environment.SetEnvironmentVariable("STEAM_EXE", SteamExePath);
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

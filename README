@@ -37,5 +37,7 @@ username, password, Steam ID and API key. After filling them in, press
 **Add Account**. Use the **Launch** and **Trade** buttons to start CS2 or send
 items for the selected account.
 
-If Steam is installed in a non-standard location, set the `STEAM_EXE`
-environment variable to the full path of `steam.exe` so the launcher can find it.
+If Steam is installed in a non-standard location you can choose the path
+directly in the application. Use the **Browse** button next to *Steam path*
+at the top of the window to select `steam.exe`. The value is also stored in the
+`STEAM_EXE` environment variable for future launches.

@@ -7,16 +7,24 @@ namespace SteamManager
 {
     public static class GameLauncher
     {
-        public static void LaunchCS2(Account account)
+        public static string DetectSteamPath()
+        {
+            var env = Environment.GetEnvironmentVariable("STEAM_EXE");
+            if (!string.IsNullOrWhiteSpace(env))
+                return env;
+
+            var default1 = @"C:\\Program Files (x86)\\Steam\\steam.exe";
+            var default2 = @"C:\\Program Files\\Steam\\steam.exe";
+            return File.Exists(default1) ? default1 : default2;
+        }
+
+        public static void LaunchCS2(Account account, string? steamPath)
         {
             var args = $"-login {account.Username} {account.Password} -applaunch 730";
 
-            var steamPath = Environment.GetEnvironmentVariable("STEAM_EXE");
             if (string.IsNullOrWhiteSpace(steamPath))
             {
-                var default1 = @"C:\\Program Files (x86)\\Steam\\steam.exe";
-                var default2 = @"C:\\Program Files\\Steam\\steam.exe";
-                steamPath = File.Exists(default1) ? default1 : default2;
+                steamPath = DetectSteamPath();
             }
 
             try

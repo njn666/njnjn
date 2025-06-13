@@ -33,4 +33,10 @@
   <data name="AddAccount" xml:space="preserve">
     <value>Add Account</value>
   </data>
+  <data name="SteamPath" xml:space="preserve">
+    <value>Steam path</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
 </root>

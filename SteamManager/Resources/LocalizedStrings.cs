@@ -16,6 +16,8 @@ namespace SteamManager.Resources
         public string SteamId => Strings.SteamId;
         public string ApiKey => Strings.ApiKey;
         public string AddAccount => Strings.AddAccount;
+        public string SteamPath => Strings.SteamPath;
+        public string Browse => Strings.Browse;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -33,6 +35,8 @@ namespace SteamManager.Resources
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SteamId)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ApiKey)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AddAccount)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SteamPath)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Browse)));
         }
     }
 }
