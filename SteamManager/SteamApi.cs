@@ -9,7 +9,7 @@ namespace SteamManager
     {
         static HttpClient client = new HttpClient();
 
-        public static async Task FetchLevel(Account account)
+        public static async Task FetchLevel(Account account, Action<int> onXp)
         {
             if (string.IsNullOrEmpty(account.ApiKey) || string.IsNullOrEmpty(account.SteamId))
             {
@@ -23,7 +23,7 @@ namespace SteamManager
                 using var doc = JsonDocument.Parse(json);
                 if (doc.RootElement.TryGetProperty("response", out var resp) && resp.TryGetProperty("player_xp", out var xp))
                 {
-                    Console.WriteLine($"{account.Username}: XP {xp.GetInt32()}");
+                    onXp(xp.GetInt32());
                 }
             }
             catch (Exception ex)

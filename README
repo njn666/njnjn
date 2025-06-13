@@ -1,13 +1,13 @@
 # SteamTrush
 
-SteamTrush is a simple experimental tool for managing multiple Steam accounts.
-It demonstrates how to login with SteamKit2, fetch XP via the Steam Web API and
-launch Counter-Strike 2 from different accounts. The application supports both
-English and Russian languages.
+SteamTrush is a Windows desktop tool for managing multiple Steam accounts.
+It provides a graphical interface built with WPF that lets you view account XP,
+launch Counter-Strike 2 from any account and send trade offers. The interface
+can be switched between English and Russian.
 
 ## Building
-1. Install the .NET 7 SDK.
-2. Run `dotnet restore` and `dotnet run` inside the `SteamManager` directory.
+1. Install the .NET 7 SDK with Windows desktop support.
+2. Run `dotnet restore` and then `dotnet run -p SteamManager/SteamManager.csproj`.
 
 ## Configuration
 Create an `accounts.json` file with the following structure:

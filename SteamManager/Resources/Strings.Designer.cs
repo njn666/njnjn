@@ -24,9 +24,31 @@ namespace SteamManager.Resources {
         }
 
         internal static string Welcome {
-            get {
-                return ResourceManager.GetString("Welcome", resourceCulture);
-            }
+            get { return ResourceManager.GetString("Welcome", resourceCulture); }
+        }
+
+        internal static string Launch {
+            get { return ResourceManager.GetString("Launch", resourceCulture); }
+        }
+
+        internal static string Trade {
+            get { return ResourceManager.GetString("Trade", resourceCulture); }
+        }
+
+        internal static string Refresh {
+            get { return ResourceManager.GetString("Refresh", resourceCulture); }
+        }
+
+        internal static string Drops {
+            get { return ResourceManager.GetString("Drops", resourceCulture); }
+        }
+
+        internal static string Username {
+            get { return ResourceManager.GetString("Username", resourceCulture); }
+        }
+
+        internal static string Language {
+            get { return ResourceManager.GetString("Language", resourceCulture); }
         }
     }
 }

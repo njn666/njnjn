@@ -3,4 +3,22 @@
   <data name="Welcome" xml:space="preserve">
     <value>Welcome to Steam Manager</value>
   </data>
+  <data name="Launch" xml:space="preserve">
+    <value>Launch</value>
+  </data>
+  <data name="Trade" xml:space="preserve">
+    <value>Trade</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh XP</value>
+  </data>
+  <data name="Drops" xml:space="preserve">
+    <value>Drops</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language:</value>
+  </data>
 </root>
