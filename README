@@ -1,5 +1,26 @@
 # SteamTrush
 
-Краткое описание. Например:
+SteamTrush is a simple experimental tool for managing multiple Steam accounts.
+It demonstrates how to login with SteamKit2, fetch XP via the Steam Web API and
+launch Counter-Strike 2 from different accounts. The application supports both
+English and Russian languages.
 
-Этот проект создан для тестирования Codex (ChatGPT Code Interpreter).
+## Building
+1. Install the .NET 7 SDK.
+2. Run `dotnet restore` and `dotnet run` inside the `SteamManager` directory.
+
+## Configuration
+Create an `accounts.json` file with the following structure:
+
+```json
+[
+  {
+    "Username": "user1",
+    "Password": "pass1",
+    "SteamId": "7656119...",
+    "ApiKey": "XXXXXXXXXXXX"
+  }
+]
+```
+
+Set the environment variable `STEAM_MANAGER_LANG` to `ru` for Russian UI.
