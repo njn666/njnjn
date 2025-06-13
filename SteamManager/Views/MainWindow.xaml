@@ -26,10 +26,10 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,5">
-            <TextBox Width="100" Margin="0,0,5,0" Text="{Binding NewUsername, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Username"/>
-            <TextBox Width="100" Margin="0,0,5,0" Text="{Binding NewPassword, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Password"/>
-            <TextBox Width="130" Margin="0,0,5,0" Text="{Binding NewSteamId, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="SteamId"/>
-            <TextBox Width="130" Margin="0,0,5,0" Text="{Binding NewApiKey, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="ApiKey"/>
+            <TextBox Width="100" Margin="0,0,5,0" Text="{Binding NewUsername, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Width="100" Margin="0,0,5,0" Text="{Binding NewPassword, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Width="130" Margin="0,0,5,0" Text="{Binding NewSteamId, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Width="130" Margin="0,0,5,0" Text="{Binding NewApiKey, UpdateSourceTrigger=PropertyChanged}" />
             <Button Content="Add" Width="80" Command="{Binding AddAccountCommand}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="0,10,0,0" HorizontalAlignment="Left">
