@@ -31,5 +31,32 @@ namespace SteamManager
                 Console.WriteLine($"API error: {ex.Message}");
             }
         }
+
+        public static async Task FetchInventory(Account account, Action<string> onItems)
+        {
+            if (string.IsNullOrEmpty(account.SteamId))
+                return;
+
+            try
+            {
+                var url = $"https://steamcommunity.com/inventory/{account.SteamId}/730/2?l=en&count=5000";
+                var json = await client.GetStringAsync(url);
+                using var doc = JsonDocument.Parse(json);
+                if (doc.RootElement.TryGetProperty("descriptions", out var descs))
+                {
+                    var items = new System.Text.StringBuilder();
+                    foreach (var item in descs.EnumerateArray())
+                    {
+                        if (item.TryGetProperty("market_hash_name", out var name))
+                            items.Append(name.GetString()).Append(", ");
+                    }
+                    onItems(items.ToString().TrimEnd(',', ' '));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Inventory error: {ex.Message}");
+            }
+        }
     }
 }

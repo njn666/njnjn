@@ -71,8 +71,14 @@ namespace SteamManager.ViewModels
         {
             foreach (var acc in Accounts)
             {
-                var a = new Account { Username = acc.Username, Password = acc.Password, SteamId = acc.SteamId, ApiKey = acc.ApiKey };
+                var a = new Account {
+                    Username = acc.Username,
+                    Password = acc.Password,
+                    SteamId = acc.SteamId,
+                    ApiKey = acc.ApiKey
+                };
                 await SteamApi.FetchLevel(a, xp => acc.Xp = xp);
+                await SteamApi.FetchInventory(a, items => acc.Drops = items);
             }
         }
 
